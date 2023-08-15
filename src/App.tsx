@@ -1,4 +1,5 @@
-import ListGroup from "./components/ListGroup";
+import ListGroup from "./components/ListGroup"
+import Button from "./components/Button"
 
 function App() {
   let items = [
@@ -15,10 +16,17 @@ function App() {
     'D'
   ]
 
+  const handleSelectItem = (item: string) => {
+    console.log(item)
+  }
+
   return (
     <div>
-      <ListGroup items={items} heading="Cities" />
-      <ListGroup items={items2} heading="ABC" />
+      <Button context="my button" color="primary" onClick={() => {console.log('Clicked!')}} />
+      <Button context="test" color="secondary" onClick={() => {}}/>
+      <Button context="test" color="danger" onClick={() => {}}/>
+      <ListGroup items={items} heading="Cities" onSelectItem={handleSelectItem} />
+      <ListGroup items={items2} heading="ABC" onSelectItem={handleSelectItem} />
     </div>
   )
 }
